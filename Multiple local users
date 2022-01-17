@@ -1,0 +1,13 @@
+vi user.list - add the required users names
+vi mail.list - add the required mail ids for users
+
+
+#!/bin/bash
+for i in `cat user.list` 
+do
+for c in `cat mail.list`
+do 
+echo -n "Creating user:"
+oci iam user  create --name $i --description "$i" --email "$c"
+done
+done
